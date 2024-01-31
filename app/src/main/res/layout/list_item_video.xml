@@ -8,6 +8,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
+        android:contentDescription="@null"
         android:id="@+id/imgThumbnail"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -16,10 +17,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_launcher_background"
         tools:src="@tools:sample/backgrounds/scenic" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgAuthor"
+        android:src="@drawable/ic_launcher_background"
         tools:src="@tools:sample/avatars"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imgThumbnail"
@@ -34,6 +37,7 @@
         app:layout_constraintTop_toTopOf="@id/imgAuthor"
         app:layout_constraintStart_toEndOf="@id/imgAuthor"
         app:layout_constraintEnd_toStartOf="@id/imgAction"
+        android:text="Focalors Farewell and Execution Cutscene Animation"
         tools:text="Focalors Farewell and Execution Cutscene Animation"
         android:textStyle="bold"
         android:textColor="?colorPrimary"
@@ -45,6 +49,7 @@
         />
     
     <ImageView
+        android:contentDescription="@null"
         android:layout_marginEnd="4dp"
         android:src="@drawable/baseline_more_vert_24"
         android:id="@+id/imgAction"
@@ -58,6 +63,7 @@
         android:id="@+id/txvInfo"
         app:layout_constraintStart_toEndOf="@id/imgAuthor"
         app:layout_constraintTop_toBottomOf="@id/txvTitle"
+        android:text="Genshin Impact - 433M view - 1 month ago"
         tools:text="Genshin Impact - 433M view - 1 month ago"
         android:layout_marginStart="10dp"
         android:layout_marginTop="3dp"
