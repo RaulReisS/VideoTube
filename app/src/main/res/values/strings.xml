@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">VideoTube</string>
+    <string name="info">%1$s - %2$s view - %3$s</string>
 </resources>

@@ -5,11 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?colorOnPrimary"
+    android:id="@+id/containerMotion"
     tools:context=".MainActivity">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:background="?colorOnPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                app:layout_scrollFlags="scroll|enterAlways"
+                android:layout_width="match_parent"
+                android:layout_height="48dp">
+
+                <ImageView
+                    android:contentDescription="@null"
+                    android:id="@+id/imgFrontLogo"
+                    android:layout_width="34dp"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/logof_youtube" />
+
+                <ImageView
+                    android:contentDescription="@null"
+                    android:id="@+id/imgBackLogo"
+                    android:src="@drawable/logob_youtube"
+                    android:layout_width="66dp"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         tools:listitem="@layout/list_item_video"
         tools:itemCount="10"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         android:id="@+id/rvMain"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,4 +55,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         />
 
+    <FrameLayout
+        tools:visibility="gone"
+        android:id="@+id/FrameProgress"
+        android:background="?colorOnPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <ProgressBar
+            android:indeterminateTint="?colorPrimaryVariant"
+            android:id="@+id/ProgressBar"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </FrameLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
