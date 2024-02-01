@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
+import android.view.WindowInsetsController
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.raulreis.videotube.databinding.ActivityMainBinding
 import com.google.gson.GsonBuilder
@@ -38,6 +40,13 @@ class MainActivity : AppCompatActivity() {
             when(resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
                 Configuration.UI_MODE_NIGHT_YES -> {
                     binding.imgBackLogo.imageTintList = ColorStateList.valueOf(Color.WHITE)
+                }
+                Configuration.UI_MODE_NIGHT_NO -> {
+                    window.insetsController?.setSystemBarsAppearance(
+                        WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
+                        WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+                    )
+                    window.statusBarColor = ContextCompat.getColor(this, R.color.gray)
                 }
             }
         }
