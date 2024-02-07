@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.View
 import android.view.WindowInsetsController
+import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.raulreis.videotube.databinding.ActivityMainBinding
@@ -53,12 +54,13 @@ class MainActivity : AppCompatActivity() {
 
         val videos = mutableListOf<Video>()
         videoAdapter = VideoAdapter(videos) {video: Video ->
-
+            showOverlayView(video)
         }
 
         with(binding) {
             rvMain.layoutManager = LinearLayoutManager(this@MainActivity)
             rvMain.adapter = videoAdapter
+            findViewById<View>(R.id.viewLayer).alpha = 0f
         }
 
         CoroutineScope(Dispatchers.IO).launch {
@@ -69,7 +71,8 @@ class MainActivity : AppCompatActivity() {
                     videos.clear()
                     videos.addAll(listVideos.data)
                     videoAdapter.notifyDataSetChanged()
-                    binding.FrameProgress.visibility = View.GONE
+                    binding.containerMotion.removeView(binding.FrameProgress)
+                    //binding.FrameProgress.visibility = View.GONE
                 }
             }
         }
@@ -78,6 +81,50 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+
+    private fun showOverlayView(video: Video) {
+        val viewLayer = findViewById<View>(R.id.viewLayer)
+        viewLayer.animate().apply {
+                duration = 400
+                alpha(0.5f)
+        }
+
+        binding.containerMotion.setTransitionListener(object : MotionLayout.TransitionListener {
+            override fun onTransitionStarted(
+                motionLayout: MotionLayout?,
+                startId: Int,
+                endId: Int,
+            ) {
+
+            }
+
+            override fun onTransitionChange(
+                motionLayout: MotionLayout?,
+                startId: Int,
+                endId: Int,
+                progress: Float,
+            ) {
+                if (progress > 0.5f)
+                    viewLayer.alpha = 1.0f - progress
+                else
+                    viewLayer.alpha = 0.5f
+
+            }
+
+            override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
+
+            }
+
+            override fun onTransitionTrigger(
+                motionLayout: MotionLayout?,
+                triggerId: Int,
+                positive: Boolean,
+                progress: Float,
+            ) {
+
+            }
+        })
     }
 
     private fun getVideos(): ListVideo? {
