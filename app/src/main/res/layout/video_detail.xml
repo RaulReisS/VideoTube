@@ -14,6 +14,26 @@
         android:visibility="visible"
         />
 
+    <LinearLayout
+        android:id="@+id/linearContainerScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:background="?colorOnPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgVideoPlayer"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
     <ImageView
         android:contentDescription="@null"
         android:id="@+id/imgVideoPlayer"
@@ -62,6 +82,202 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         />
+
+    <View
+        android:id="@+id/viewFrame"
+        android:background="?colorPrimary"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0"
+        tools:alpha="1"
+        app:layout_constraintStart_toStartOf="@id/imgVideoPlayer"
+        app:layout_constraintBottom_toBottomOf="@id/imgVideoPlayer"
+        app:layout_constraintEnd_toEndOf="@id/imgVideoPlayer"
+        app:layout_constraintTop_toTopOf="@id/imgVideoPlayer"
+        />
+
+    <ImageView
+        android:id="@+id/imgHidePlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_keyboard_arrow_down_black_24dp"
+        app:layout_constraintTop_toTopOf="@id/imgVideoPlayer"
+        app:layout_constraintStart_toStartOf="@id/imgVideoPlayer"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/imgPlaylistPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_playlist_add_black_24dp"
+        app:layout_constraintTop_toTopOf="@id/imgVideoPlayer"
+        app:layout_constraintEnd_toStartOf="@id/imgSharePlayer"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:alpha="0"
+        tools:alpha="1"
+        />
+
+    <ImageView
+        android:id="@+id/imgSharePlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_reply_black_24dp"
+        app:layout_constraintTop_toTopOf="@id/imgVideoPlayer"
+        app:layout_constraintEnd_toStartOf="@id/imgMorePlayer"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:alpha="0"
+        tools:alpha="1"
+        />
+
+    <ImageView
+        android:id="@+id/imgMorePlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_more_vert_black_24dp"
+        app:layout_constraintTop_toTopOf="@id/imgVideoPlayer"
+        app:layout_constraintEnd_toEndOf="@id/imgVideoPlayer"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:alpha="0"
+        tools:alpha="1"
+        />
+
+    <ImageView
+        android:id="@+id/imgFullPlayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_fullscreen_black_24dp"
+        app:layout_constraintBottom_toBottomOf="@id/imgVideoPlayer"
+        app:layout_constraintEnd_toEndOf="@id/imgVideoPlayer"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:alpha="0"
+        tools:alpha="1"
+        />
+
+    <TextView
+        android:id="@+id/txvDurationTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="00:00"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:alpha="0"
+        tools:alpha="1"
+        app:layout_constraintBottom_toBottomOf="@id/imgFullPlayer"
+        app:layout_constraintEnd_toStartOf="@id/imgFullPlayer"
+        app:layout_constraintTop_toTopOf="@id/imgFullPlayer"
+        />
+
+    <TextView
+        android:id="@+id/txvCurrentTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="00:00"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:alpha="0"
+        tools:alpha="1"
+        app:layout_constraintBottom_toBottomOf="@id/imgFullPlayer"
+        app:layout_constraintTop_toTopOf="@id/imgFullPlayer"
+        app:layout_constraintStart_toStartOf="@id/imgHidePlayer"
+        />
+
+    <ProgressBar
+        android:id="@+id/progressCircular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/imgVideoPlayer"
+        app:layout_constraintBottom_toBottomOf="@id/imgVideoPlayer"
+        app:layout_constraintEnd_toEndOf="@id/imgVideoPlayer"
+        app:layout_constraintTop_toTopOf="@id/imgVideoPlayer"
+        android:indeterminateTint="?colorPrimaryVariant"
+        />
+
+    <ImageView
+        android:id="@+id/imgPlayButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_pause_black_24dp"
+        android:alpha="0"
+        tools:alpha="1"
+        app:layout_constraintStart_toStartOf="@id/imgVideoPlayer"
+        app:layout_constraintBottom_toBottomOf="@id/imgVideoPlayer"
+        app:layout_constraintEnd_toEndOf="@id/imgVideoPlayer"
+        app:layout_constraintTop_toTopOf="@id/imgVideoPlayer"
+        />
+
+    <ImageView
+        android:id="@+id/imgNextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_skip_next_black_24dp"
+        android:alpha="0"
+        tools:alpha="1"
+        app:layout_constraintBottom_toBottomOf="@id/imgVideoPlayer"
+        app:layout_constraintTop_toTopOf="@id/imgVideoPlayer"
+        app:layout_constraintStart_toEndOf="@id/imgPlayButton"
+        android:layout_marginStart="50dp"
+        />
+
+    <ImageView
+        android:id="@+id/imgPrevewButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_skip_previous_black_24dp"
+        android:alpha="0"
+        tools:alpha="1"
+        app:layout_constraintBottom_toBottomOf="@id/imgVideoPlayer"
+        app:layout_constraintTop_toTopOf="@id/imgVideoPlayer"
+        app:layout_constraintEnd_toStartOf="@id/imgPlayButton"
+        android:layout_marginEnd="50dp"
+        />
+
+    <ImageView
+        android:id="@+id/imgVideoPlayButton"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_play_arrow_black_24dp"
+        app:layout_constraintBottom_toBottomOf="@id/linearPlayerTitle"
+        app:layout_constraintEnd_toStartOf="@id/imgVideoCancelButton"
+        app:layout_constraintTop_toTopOf="@id/linearPlayerTitle"
+        />
+
+    <ImageView
+        android:id="@+id/imgVideoCancelButton"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_close_black_24dp"
+        app:layout_constraintBottom_toBottomOf="@id/linearPlayerTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/linearPlayerTitle"
+        />
+
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/darkgray"
+        android:progressTint="?colorPrimaryVariant"
+        android:thumbTint="?colorPrimaryVariant"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        app:layout_constraintTop_toTopOf="@id/linearContainerScroll"
+        app:layout_constraintBottom_toTopOf="@id/linearContainerScroll"
+        />
+
+
+
 
 
 
