@@ -34,11 +34,63 @@
                 android:scaleY="1"
                 app:framePosition="92" />
 
+            <KeyAttribute
+                app:motionTarget="@id/imgVideoCancelButton"
+                android:alpha="0"
+                app:framePosition="92" />
+
+            <KeyAttribute
+                app:motionTarget="@id/imgVideoPlayButton"
+                android:alpha="0"
+                app:framePosition="92" />
+
+
         </KeyFrameSet>
 
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
+
+        <Constraint
+            android:id="@+id/imgHidePlayer"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toTopOf="@id/imgVideoPlayer"
+            app:layout_constraintStart_toStartOf="@id/imgVideoPlayer"
+            />
+
+        <Constraint
+            android:id="@+id/linearContainerScroll"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgVideoPlayer"
+            />
+
+        <Constraint
+            android:id="@+id/imgVideoPlayButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/linearPlayerTitle"
+            app:layout_constraintEnd_toStartOf="@id/imgVideoCancelButton"
+            app:layout_constraintTop_toTopOf="@id/linearPlayerTitle"
+            />
+
+        <Constraint
+            android:id="@+id/imgVideoCancelButton"
+
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="10dp"
+
+            app:layout_constraintBottom_toBottomOf="@id/linearPlayerTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/linearPlayerTitle"
+            />
 
         <Constraint
             android:id="@+id/imgVideoPlayer"
@@ -67,6 +119,77 @@
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
+
+        <Constraint
+            android:id="@+id/seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toTopOf="@id/linearContainerScroll"
+            app:layout_constraintTop_toTopOf="@id/linearContainerScroll"
+            />
+
+        <Constraint
+            android:id="@+id/imgHidePlayer"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="150dp"
+            android:layout_marginEnd="20dp"
+
+            app:layout_constraintBottom_toBottomOf="@id/imgVideoPlayer"
+            app:layout_constraintTop_toTopOf="@id/imgVideoPlayer"
+            app:layout_constraintEnd_toStartOf="@id/imgVideoPlayButton"
+            app:layout_constraintStart_toStartOf="@id/imgVideoPlayer"
+
+            />
+
+        <Constraint
+            android:id="@+id/linearContainerScroll"
+            android:layout_height="0dp"
+            android:layout_width="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:translationY="-42dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgVideoPlayer"
+            />
+
+        <Constraint
+            android:id="@+id/linearPlayerTitle"
+            app:layout_constraintTop_toTopOf="@id/imgVideoPlayer"
+            app:layout_constraintEnd_toEndOf="@id/imgVideoPlayer"
+            app:layout_constraintStart_toStartOf="@id/imgVideoPlayer"
+            app:layout_constraintBottom_toBottomOf="@id/imgVideoPlayer"
+            android:layout_marginStart="130dp"
+            android:layout_marginEnd="10dp"
+
+            />
+
+        <Constraint
+            android:id="@+id/imgVideoPlayButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/linearPlayerTitle"
+            app:layout_constraintEnd_toStartOf="@id/imgVideoCancelButton"
+            app:layout_constraintTop_toTopOf="@id/linearPlayerTitle"
+            />
+
+        <Constraint
+            android:id="@+id/imgVideoCancelButton"
+
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="25dp"
+
+            app:layout_constraintBottom_toBottomOf="@id/linearPlayerTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/linearPlayerTitle"
+            />
 
         <Constraint
             android:id="@+id/imgVideoPlayer"

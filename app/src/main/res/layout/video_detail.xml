@@ -20,10 +20,7 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         android:background="?colorOnPrimary"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imgVideoPlayer"
+
         >
 
         <LinearLayout
@@ -101,8 +98,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_keyboard_arrow_down_black_24dp"
-        app:layout_constraintTop_toTopOf="@id/imgVideoPlayer"
-        app:layout_constraintStart_toStartOf="@id/imgVideoPlayer"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         />
@@ -195,6 +190,8 @@
 
     <ProgressBar
         android:id="@+id/progressCircular"
+        android:visibility="gone"
+        tools:visibility="visible"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@id/imgVideoPlayer"
@@ -248,9 +245,6 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:src="@drawable/ic_play_arrow_black_24dp"
-        app:layout_constraintBottom_toBottomOf="@id/linearPlayerTitle"
-        app:layout_constraintEnd_toStartOf="@id/imgVideoCancelButton"
-        app:layout_constraintTop_toTopOf="@id/linearPlayerTitle"
         />
 
     <ImageView
@@ -258,9 +252,6 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:src="@drawable/ic_close_black_24dp"
-        app:layout_constraintBottom_toBottomOf="@id/linearPlayerTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/linearPlayerTitle"
         />
 
     <SeekBar
