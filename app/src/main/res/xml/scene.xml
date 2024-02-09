@@ -151,7 +151,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="10dp"
-            android:translationY="-42dp"
+            android:translationY="-45dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -165,7 +165,6 @@
             app:layout_constraintStart_toStartOf="@id/imgVideoPlayer"
             app:layout_constraintBottom_toBottomOf="@id/imgVideoPlayer"
             android:layout_marginStart="130dp"
-            android:layout_marginEnd="10dp"
 
             />
 
@@ -201,7 +200,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:scaleX="0.4"
-            android:translationX="-120dp"
+            android:translationX="-111dp"
             />
 
         <Constraint
@@ -211,7 +210,7 @@
             app:layout_constraintEnd_toEndOf="@id/imgVideoPlayer"
             app:layout_constraintTop_toTopOf="@id/imgVideoPlayer"
             android:scaleX="0.4"
-            android:translationX="-120dp"
+            android:translationX="-111dp"
             />
 
         <Constraint
@@ -221,7 +220,6 @@
             app:layout_constraintStart_toStartOf="@id/imgVideoPlayer"
             app:layout_constraintBottom_toBottomOf="@id/imgVideoPlayer"
             android:layout_marginStart="120dp"
-            android:layout_marginEnd="10dp"
             />
 
     </ConstraintSet>

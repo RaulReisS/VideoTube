@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txvContentTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ola mundo"
+        android:textColor="?colorPrimary"
+        android:textSize="16sp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:paddingStart="12dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/txvViews"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:text="7.7M views"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingEnd="12dp"
+        android:weightSum="5"
+        >
+        
+        <Button
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:drawableTop="@drawable/ic_thumb_up_black_24dp"
+            android:textColor="?colorPrimary"
+            android:layout_weight="1"
+            android:text="25K"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:drawableTop="@drawable/ic_thumb_down_black_24dp"
+            android:textColor="?colorPrimary"
+            android:layout_weight="1"
+            android:text="3.9K"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:drawableTop="@drawable/ic_share_black_24dp"
+            android:textColor="?colorPrimary"
+            android:layout_weight="1"
+            android:text="Share"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <Button
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:drawableTop="@drawable/ic_file_download_black_24dp"
+            android:textColor="?colorPrimary"
+            android:layout_weight="1"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:text="Download"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+        <Button
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:drawableTop="@drawable/ic_playlist_add_black2_24dp"
+            android:textColor="?colorPrimary"
+            android:layout_weight="1"
+            android:text="Save"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+    <View
+        android:background="?colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height=".5dp" />
+    
+    <RelativeLayout
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/imgChannel"
+            android:src="?colorAccent"
+            android:layout_width="48dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_height="48dp"
+            />
+
+        <TextView
+            android:id="@+id/txvContentChannel"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:layout_toEndOf="@id/imgChannel"
+            android:text="Channel"
+            android:textColor="?colorPrimary"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        
+        <TextView
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textSize="14sp"
+            android:layout_below="@id/txvContentChannel"
+            android:layout_toEndOf="@id/imgChannel"
+            android:text="6.4M subscribers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_alignParentEnd="true"
+            android:text="Subscribe"
+            android:drawableStart="@drawable/icon_yt"
+            android:textColor="?colorPrimaryVariant"
+            android:drawablePadding="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+    </RelativeLayout>
+    
+    <View
+        android:background="?colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height=".5dp" />
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSimilar"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
+        tools:listitem="@layout/video_detail_list_item_video"
+        tools:itemCount="10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    
+
+</LinearLayout>
