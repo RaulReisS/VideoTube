@@ -9,11 +9,15 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.View
 import android.view.WindowInsetsController
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import br.com.raulreis.videotube.databinding.ActivityMainBinding
 import com.google.gson.GsonBuilder
+import com.squareup.picasso.Picasso
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -125,6 +129,20 @@ class MainActivity : AppCompatActivity() {
 
             }
         })
+
+        val detailAdapter = VideoDetailAdapter(videos())
+
+        with(findViewById<RecyclerView>(R.id.rvSimilar)) {
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            adapter = detailAdapter
+            detailAdapter.notifyDataSetChanged()
+        }
+
+        findViewById<TextView>(R.id.txvContentChannel).text = video.publisher.name
+        findViewById<TextView>(R.id.txvContentTitle).text = video.title
+        Picasso.get().load(video.publisher.pictureProfileUrl).into(findViewById<ImageView>(R.id.imgChannel))
+
+
     }
 
     private fun getVideos(): ListVideo? {

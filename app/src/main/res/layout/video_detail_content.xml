@@ -119,7 +119,7 @@
         android:layout_height="wrap_content"
         >
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgChannel"
             android:src="?colorAccent"
             android:layout_width="48dp"
