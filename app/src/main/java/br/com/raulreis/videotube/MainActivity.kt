@@ -7,9 +7,11 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.SurfaceView
 import android.view.View
 import android.view.WindowInsetsController
 import android.widget.ImageView
+import android.widget.SeekBar
 import android.widget.TextView
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.content.ContextCompat
@@ -32,6 +34,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private lateinit var videoAdapter: VideoAdapter
+
+    private lateinit var youtubePlayer: YoutubePlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,6 +84,51 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+        findViewById<SeekBar>(R.id.seekbar).setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                if (fromUser) {
+                    youtubePlayer.seek(progress.toLong())
+                }
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+
+            }
+        })
+        preparePlayer()
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        youtubePlayer.release()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        youtubePlayer.pause()
+    }
+
+    private fun preparePlayer() {
+        youtubePlayer = YoutubePlayer(this@MainActivity)
+        youtubePlayer.youtubePlayerListener = object : YoutubePlayer.YoutubePlayerListener {
+            override fun onPrepared(duration: Long) {
+                findViewById<TextView>(R.id.txvDurationTime).text = duration.formatTime()
+            }
+
+            override fun onTrackTime(currentPosition: Long, percent: Long) {
+                findViewById<SeekBar>(R.id.seekbar).progress = percent.toInt()
+                findViewById<TextView>(R.id.txvCurrentTime).text = currentPosition.formatTime()
+            }
+
+        }
+        findViewById<SurfaceView>(R.id.surfaceVideoPlayer).holder.addCallback(youtubePlayer)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -129,6 +178,9 @@ class MainActivity : AppCompatActivity() {
 
             }
         })
+
+        findViewById<ImageView>(R.id.imgVideoPlayer).visibility = View.GONE
+        youtubePlayer.setUrl(video.videoUrl)
 
         val detailAdapter = VideoDetailAdapter(videos())
 
